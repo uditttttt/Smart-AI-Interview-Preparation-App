@@ -32,8 +32,8 @@ const LandingPage = () => {
       <div className="w-full min-h-full bg-[#FFFCEF]">
         <div className="w-[500px] h-[500px] bg-amber-200/20 blur-[65px] absolute top-0 left-0" />
 
-        {/* Increased container padding and max-width */}
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 pt-6 pb-[200px] relative z-10">
+        {/* <div className=" mx-auto  md:px-12 lg:px-24 pt-6 pb-[200px] relative z-10"> */}
+        <div className=" max-w-7xl mx-auto px-6 sm:px-8 lg:px-20 pt-6 pb-[200px] relative z-10">
           {/* Header - unchanged */}
           <header className="flex justify-between items-center mb-16">
             <div className="text-xl text-black font-bold">
@@ -81,10 +81,7 @@ const LandingPage = () => {
               <p className="text-[17px] text-gray-900 mb-8 leading-relaxed">
                 {" "}
                 {/* Removed mr, increased mb */}
-                Get role-specific questions, expand answers when you need them,
-                dive deeper into concepts, and organize everything your way.
-                From preparation to mastery — your ultimate interview toolkit is
-                here.
+                Get role-specific questions, expand answers when you need them, dive deeper into concepts, and organize everything your way.From preparation to mastery — your ultimate interview toolkit is here.
               </p>
               <button
                 className="bg-black text-sm font-semibold text-white px-7 py-3 rounded-full hover:bg-yellow-100 hover:text-black border border-yellow-50 hover:border-yellow-300 transition-colors cursor-pointer self-start"
@@ -96,6 +93,8 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+
+
 
       <div className="w-full min-h-full relative z-10 ">
         <div>
@@ -175,3 +174,6 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
+
+
