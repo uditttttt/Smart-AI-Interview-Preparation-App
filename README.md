@@ -1,2 +1,2 @@
-# Smart-AI-Interview-Preparation-App-Change
+# Smart-AI-Interview-Preparation-App
 
