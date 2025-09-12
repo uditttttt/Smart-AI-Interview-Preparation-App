@@ -121,4 +121,4 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // --- CHANGE 2: Add this line at the very end for Vercel ---
 // This exports your Express app, which is the standard way Vercel's build process works.
-module.exports = app;
+module.exports = app; 

@@ -42,7 +42,7 @@ export const BASE_URL = import.meta.env.VITE_API_URL;
 // All your API paths will now correctly build off the BASE_URL.
 export const API_PATHS = {
   AUTH: {
-    REGISTER: "/auth/register",
+    REGISTER: "/auth/register", 
     LOGIN: "/auth/login",
     GET_PROFILE: "/auth/profile",
   },
