@@ -80,7 +80,7 @@ const app = express();
 // --- START: CORS CONFIGURATION ---
 const allowedOrigins = [
   'http://localhost:5173', // Your local frontend for development
-  'https://smart-ai-interview-preparation-app-ybli.onrender.com/' // IMPORTANT: Replace with your deployed Render frontend URL
+  'https://smart-ai-interview-preparation-app-ybli.onrender.com' // IMPORTANT: Replace with your deployed Render frontend URL
 ];
 
 const corsOptions = {
