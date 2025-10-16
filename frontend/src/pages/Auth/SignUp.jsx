@@ -8,6 +8,7 @@ import { UserContext } from "../../context/userContext";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import uploadImage from "../../utils/uploadImage";
+import SpinnerLoader from "../../components/Loader/SpinnerLoader";
 
 const SignUp = ({ setCurrentPage }) => {
   const [profilePic, setProfilePic] = useState(null);
@@ -16,6 +17,7 @@ const SignUp = ({ setCurrentPage }) => {
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -42,6 +44,8 @@ const SignUp = ({ setCurrentPage }) => {
     }
 
     setError("");
+
+    setIsLoading(true); // Start loading
 
     //SignUp API Call
     try {
@@ -71,6 +75,8 @@ const SignUp = ({ setCurrentPage }) => {
       } else {
         setError("Something went wrong.Please try again.");
       }
+    } finally {
+      setIsLoading(false); // Stop loading
     }
   };
 
@@ -114,9 +120,11 @@ const SignUp = ({ setCurrentPage }) => {
 
         <button
           type="submit"
-          className="w-full bg-black text-white py-3 px-4 rounded-md font-medium hover:bg-red-100 hover:text-black transition-colors duration-200 cursor-pointer"
+          className="w-full bg-black text-white py-3 px-4 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={isLoading}
         >
-          SIGN UP
+          {isLoading && <SpinnerLoader />}
+          {isLoading ? "Creating Account..." : "CREATE ACCOUNT"}
         </button>
 
         <p className="text-[13px] text-slate-800 mt-3">

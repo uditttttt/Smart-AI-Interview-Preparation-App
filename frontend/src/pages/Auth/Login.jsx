@@ -6,11 +6,14 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
+import SpinnerLoader from "../../components/Loader/SpinnerLoader";
 
 const Login = ({ setCurrentPage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -31,6 +34,8 @@ const Login = ({ setCurrentPage }) => {
 
     setError("");
 
+    setIsLoading(true);
+
     //Login API Call
     try {
       const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
@@ -47,6 +52,7 @@ const Login = ({ setCurrentPage }) => {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);
       } else {
+        setIsLoading(false);
         setError("Something went wrong.Please try again.");
       }
     }
@@ -80,9 +86,11 @@ const Login = ({ setCurrentPage }) => {
 
         <button
           type="submit"
-          className="w-full bg-black text-white py-3 px-4 rounded-md font-medium hover:bg-red-100 hover:text-black transition-colors duration-200 cursor-pointer"
+          className="w-full bg-black text-white py-3 px-4 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={isLoading}
         >
-          LOGIN
+          {isLoading && <SpinnerLoader />}
+          {isLoading ? "Logging In..." : "LOGIN"}
         </button>
 
         <p className="text-[13px] text-slate-800 mt-3">
